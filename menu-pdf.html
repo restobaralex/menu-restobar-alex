@@ -10,85 +10,90 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root{--gold:#f4c025;--bg:#0a0a0a;--card:#131313;--white:#ffffff;--muted:#aaaaaa;--border:rgba(244,192,37,0.18)}
-@page{size:A4 portrait;margin:9mm 11mm}
+@page{size:A4 portrait;margin:8mm 10mm}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;font-size:8.8px;line-height:1.22;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
-.hdr{display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--gold);padding-bottom:7px;margin-bottom:9px}
-.hdr img{width:58px;height:58px;border-radius:50%;border:2px solid var(--gold);object-fit:cover}
+body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;font-size:8.6px;line-height:1.2;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+.hdr{display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--gold);padding-bottom:6px;margin-bottom:7px}
+.hdr img{width:54px;height:54px;border-radius:50%;border:2px solid var(--gold);object-fit:cover}
 .hdr-r{text-align:right}
-.hdr-r h1{font-family:'Bebas Neue',sans-serif;font-size:2.1rem;color:var(--gold);letter-spacing:2px;line-height:0.9}
-.hdr-r p{color:var(--muted);font-size:.78rem;margin-top:2px}
+.hdr-r h1{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);letter-spacing:2px;line-height:0.9}
+.hdr-r p{color:var(--muted);font-size:.75rem;margin-top:2px}
 .hdr-r span{color:var(--gold);font-weight:700}
-.page{display:grid;grid-template-columns:1fr 1fr;column-gap:9px;align-items:start;width:100%}
-.col{display:flex;flex-direction:column;gap:7px}
-.pgb{page-break-before:always;break-before:page;padding-top:8px}
-.card{background:var(--card);border:1px solid var(--border);border-top:2.5px solid var(--gold);border-radius:5px;padding:7px 9px;break-inside:avoid;page-break-inside:avoid}
-.card-h{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;color:var(--gold);border-bottom:1px solid rgba(255,255,255,.09);padding-bottom:3px;margin-bottom:5px;letter-spacing:.8px;display:flex;align-items:center;gap:5px}
-.card-sub{font-size:7.5px;color:var(--muted);margin-bottom:4px;font-style:italic}
-.item{display:flex;align-items:baseline;justify-content:space-between;padding:2px 0;border-bottom:1px dotted rgba(255,255,255,.06);gap:4px}
+.page{display:grid;grid-template-columns:1fr 1fr;column-gap:8px;align-items:start;width:100%}
+.col{display:flex;flex-direction:column;gap:6px}
+.pgb{page-break-before:always;break-before:page;padding-top:6px}
+.card{background:var(--card);border:1px solid var(--border);border-top:2.5px solid var(--gold);border-radius:4px;padding:6px 8px;break-inside:avoid;page-break-inside:avoid}
+.card-h{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--gold);border-bottom:1px solid rgba(255,255,255,.09);padding-bottom:3px;margin-bottom:4px;letter-spacing:.8px;display:flex;align-items:center;gap:5px}
+.card-sub{font-size:7px;color:var(--muted);margin-bottom:3px;font-style:italic}
+.item{display:flex;align-items:baseline;justify-content:space-between;padding:1.5px 0;border-bottom:1px dotted rgba(255,255,255,.06);gap:4px}
 .item:last-child{border-bottom:none}
 .il{flex:1;min-width:0}
-.in{font-weight:600;font-size:8.5px;display:flex;align-items:center;gap:3px;flex-wrap:wrap}
-.id{font-size:7.2px;color:var(--muted);margin-top:1px;line-height:1.2}
-.ip{font-weight:700;color:var(--gold);font-size:9px;white-space:nowrap;flex-shrink:0}
+.in{font-weight:600;font-size:8.2px;display:flex;align-items:center;gap:3px;flex-wrap:wrap}
+.id{font-size:7px;color:var(--muted);margin-top:1px;line-height:1.15}
+.ip{font-weight:700;color:var(--gold);font-size:8.8px;white-space:nowrap;flex-shrink:0}
 .bdg{background:var(--gold);color:#000;font-size:6px;font-weight:800;padding:1px 3px;border-radius:3px;white-space:nowrap}
-.footer{margin-top:10px;padding-top:5px;border-top:1px solid rgba(244,192,37,.25);text-align:center;font-size:7.5px;color:var(--muted)}
-.footer a{color:var(--gold);font-weight:700;text-decoration:none}
+.footer{margin-top:8px;padding-top:5px;border-top:1px solid rgba(244,192,37,.25);text-align:center;font-size:7px;color:var(--muted)}
+.footer strong{color:var(--gold)}
+@media print{
+  body{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .pgb{page-break-before:always!important;break-before:page!important}
+  .card{page-break-inside:avoid!important;break-inside:avoid!important}
+}
 </style>
 </head>
 <body>
 <div class="hdr">
-  <img src="images/logo.png" alt="Restobar Alex" onerror="this.style.display='none'">
-  <div class="hdr-r">
-    <h1>Restobar Alex</h1>
-    <p>Calle Feliu y Codina 47, Cornell&agrave; de Llobregat</p>
-    <p>Pedidos &amp; Reservas: <span>697 89 88 55</span></p>
-  </div>
+<img src="images/logo.png" alt="Restobar Alex" onerror="this.style.display='none'">
+<div class="hdr-r">
+<h1>Restobar Alex</h1>
+<p>Calle Feliu y Codina 47, Cornell&agrave; de Llobregat</p>
+<p>Pedidos &amp; Reservas: <span>697 89 88 55</span></p>
+</div>
 </div>
 
 <div class="page">
-  <div class="col" id="p1l"></div>
-  <div class="col" id="p1r"></div>
+<div class="col" id="p1l"></div>
+<div class="col" id="p1r"></div>
 </div>
 
 <div class="page pgb">
-  <div class="col" id="p2l"></div>
-  <div class="col" id="p2r"></div>
+<div class="col" id="p2l"></div>
+<div class="col" id="p2r"></div>
 </div>
 
 <div class="footer">
-  Carta oficial de <a href="#">Restobar Alex</a>. Precios con IVA incluido. Escanea el c&oacute;digo QR de nuestras mesas para ver im&aacute;genes y al&eacute;rgenos.
+Carta oficial de <strong>Restobar Alex</strong>. Precios con IVA incluido. Escanea el c&oacute;digo QR de nuestras mesas para ver im&aacute;genes y al&eacute;rgenos.
 </div>
 
 <script src="menu-data.js"></script>
 <script>
 (function(){
-  var layout={
-    p1l:['tapasFrias','tapasCalientes'],
-    p1r:['bocadillosFrios','bocadillosCalientes','ensaladas'],
-    p2l:['hamburguesas','novedades'],
-    p2r:['platosCombinados','carnes']
-  };
-  function fmt(p){return typeof p==='number'?p.toFixed(2)+'\u20ac':(p||'Consultar')}
-  function card(key){
-    var cat=MENU_DATA[key];
-    if(!cat||!cat.items)return '';
-    var h='<div class="card"><div class="card-h"><i class="fas '+(cat.icon||'fa-utensils')+'"></i>'+(cat.title||key).toUpperCase()+'</div>';
-    if(cat.subtitle)h+='<div class="card-sub">'+cat.subtitle+'</div>';
-    cat.items.forEach(function(it){
-      var b=it.badge?'<span class="bdg">'+it.badge+'</span>':'';
-      var d=it.description||it.desc||'';
-      h+='<div class="item"><div class="il"><div class="in">'+it.name+b+'</div>';
-      if(d)h+='<div class="id">'+d+'</div>';
-      h+='</div><div class="ip">'+fmt(it.price)+'</div></div>';
-    });
-    return h+'</div>';
-  }
-  Object.keys(layout).forEach(function(id){
-    var el=document.getElementById(id);
-    if(!el)return;
-    layout[id].forEach(function(k){el.insertAdjacentHTML('beforeend',card(k));});
-  });
+var layout={
+p1l:['tapasFrias','tapasCalientes'],
+p1r:['bocadillosFrios','bocadillosCalientes','ensaladas'],
+p2l:['hamburguesas','novedades'],
+p2r:['platosCombinados','carnes']
+};
+function fmt(p){return typeof p==='number'?p.toFixed(2).replace('.',',')+'€':(p||'Consultar')}
+function card(key){
+var cat=MENU_DATA[key];
+if(!cat||!cat.items)return '';
+var h='<div class="card"><div class="card-h"><i class="fas '+(cat.icon||'fa-utensils')+'"></i>'+(cat.title||key).toUpperCase()+'</div>';
+if(cat.subtitle)h+='<div class="card-sub">'+cat.subtitle+'</div>';
+cat.items.forEach(function(it){
+var b=it.badge?'<span class="bdg">'+it.badge+'</span>':'';
+var d=it.description||it.desc||'';
+h+='<div class="item"><div class="il"><div class="in">'+it.name+b+'</div>';
+if(d)h+='<div class="id">'+d+'</div>';
+h+='</div><div class="ip">'+fmt(it.price)+'</div></div>';
+});
+return h+'</div>';
+}
+Object.keys(layout).forEach(function(id){
+var el=document.getElementById(id);
+if(!el)return;
+layout[id].forEach(function(k){el.insertAdjacentHTML('beforeend',card(k));});
+});
 })();
 </script>
 </body>
