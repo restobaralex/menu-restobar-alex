@@ -249,7 +249,7 @@
 
             // Generate each category except "novedades"
             Object.keys(MENU_DATA).forEach(catKey => {
-                if (catKey === 'novedades') return; // Skip virtual category
+                // novedades incluidas en el PDF
 
                 const catObj = MENU_DATA[catKey];
                 if (!catObj || !catObj.items) return;
