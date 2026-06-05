@@ -69,7 +69,11 @@ const MENU_DATA = {
         items: [
             { name: "BURGUER \"RESTOBAR\"", price: 11.90, desc: "Smash burger, queso cheddar, carrillera melosa en su salsa, pepinillos y salsa Restobar secreta.", badge: "TOP 🆕" },
             { name: "BURGUER \"LA SETE\" / \"LA NUEVA\"", price: 10.50, desc: "Smash burger, queso cheddar, crujiente beicon y pimiento caramelizado artesanal.", badge: "NUEVO" },
-            { name: "MOLLETE", price: 6.50, desc: "Tierno mollete relleno de carrillera melosa, col encurtida y salsa especial Restobar.", badge: "¡PRUÉBALO!" }
+            { name: "MOLLETE", price: 6.50, desc: "Tierno mollete relleno de carrillera melosa, col encurtida y salsa especial Restobar.", badge: "¡PRUÉBALO!" },
+            { name: "POLLO A LA MIEL Y MOSTAZA", price: 13.50, desc: "Pollo a la miel y mostaza.", badge: "NUEVO" },
+            { name: "LA SMASH 2.0", price: 11.90, desc: "Doble carne smash, queso Cédar, beicón, huevo, cebolla crujiente y mayonesa trufada.", badge: "NUEVO" },
+            { name: "LA CRISPY 2.0", price: 11.50, desc: "Pollo rebozado, queso brie, lechuga, tomate y miel y mostaza.", badge: "NUEVO" },
+            { name: "LA MOZZA", price: 12.00, desc: "Hamburguesa, queso brie, lechuga, tomate y salsa miel y mostaza.", badge: "NUEVO" }
         ]
     },
     bocadillosFrios: {
@@ -128,20 +132,20 @@ const MENU_DATA = {
             { name: "Plato 5: Bistec, 2 huevos, bacon y patatas", price: 11.90, desc: "¡Actualizado con el incremento de +1,40€!" },
             { name: "Plato 6: Secreto adobado, 2 huevos, bacon y patatas", price: 12.90, desc: "¡Actualizado con el incremento de +1,40€!" },
             { name: "EL ESPECIAL AVENIDA", price: 10.50, desc: "Crujientes patatas fritas cubiertas de queso cheddar fundido, con bacon crujiente o jugoso pulled pork." },
-            { name: "OFERTA CHULETÓN", price: 50.00, desc: "Espectacular Chuletón de ternera gallega de 1 kg a la piedra, acompañado de 2 sabrosas tapas y botella de vino de la casa." }
+            { name: "OFERTA CHULETÓN", price: 50.00, desc: "Espectacular Chuletón de ternera gallega de 1 kg a la piedra, acompañado de 2 sabrosas tapas y botella de vino tinto." }
         ]
     },
     carnes: {
         title: "Carnes Premium",
-        subtitle: "🍖 Todos los platos se sirven acompañados con patatas y/o pimientos de Padrón",
+        subtitle: "🥩 Todos los platos se sirven acompañados con patatas y/o pimientos de Padrón",
         icon: "fa-drumstick-bite",
         items: [
             { name: "Rabo Vacuno en Salsa", price: 17.90, desc: "" },
-            { name: "Lagarto de Cerdo", price: 17.90, desc: "" },
+            { name: "Lagarto de Cerdo", price: 14.90, desc: "" },
             { name: "Pluma de Cerdo Ibérico", price: 17.90, desc: "" },
             { name: "Presa de Cerdo Ibérico", price: 17.90, desc: "" },
             { name: "Solomillo al Roquefort", price: 14.90, desc: "" },
-            { name: "Lomo al Roquefort", price: 14.90, desc: "" }
+            { name: "Lomo al Roquefort", price: 13.50, desc: "" }
         ]
     }
 };
