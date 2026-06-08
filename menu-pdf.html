@@ -64,7 +64,7 @@ body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;fon
 <script src="menu-data.js"></script>
 <script>
 (function(){
-  var layout={p1l:['tapasFrias','tapasCalientes'],p1r:['bocadillosFrios','bocadillosCalientes','ensaladas'],p2l:['platosCombinados'],p2r:['carnes'],p3l:['hamburguesas'],p3r:['novedades']};
+  var layout={p1l:['tapasFrias','tapasCalientes'],p1r:['bocadillosFrios','bocadillosCalientes','ensaladas'],p2l:['platosCombinados'],p2r:['carnes'],p3l:['hamburguesas'],p3r:[]};
   function fmt(p){return typeof p==='number'?p.toFixed(2).replace('.',',')+'€':(p||'Consultar')}
   function card(key){
     var cat=MENU_DATA[key];
