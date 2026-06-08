@@ -7,133 +7,254 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-:root{--gold:#f4c025;--bg:#0a0a0a;--card:#131313;--white:#ffffff;--muted:#aaaaaa;--border:rgba(244,192,37,0.18)}
-@page{size:A4 portrait;margin:7mm 8mm}
+:root{--gold:#f4c025;--bg:#0a0a0a;--card:#131313;--white:#fff;--muted:#aaa;--border:rgba(244,192,37,0.15)}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;font-size:8px;line-height:1.25;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
-.hdr{display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--gold);padding-bottom:5px;margin-bottom:6px;gap:8px}
-.hdr img{width:54px;height:54px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;flex-shrink:0}
-.hdr-mid{flex:1;text-align:center}
-.hdr-mid h1{font-family:'Bebas Neue',sans-serif;font-size:2.1rem;color:var(--gold);letter-spacing:3px;line-height:1}
+body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+
+/* Cada página es exactamente A4 */
+.pg{
+  width:210mm;
+  height:297mm;
+  padding:7mm 8mm;
+  background:var(--bg);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  page-break-after:always;
+  break-after:page;
+}
+.pg:last-child{page-break-after:auto;break-after:auto}
+
+/* Header */
+.hdr{display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--gold);padding-bottom:4px;margin-bottom:5px;flex-shrink:0}
+.hdr img{width:52px;height:52px;border-radius:50%;border:2px solid var(--gold);object-fit:cover}
+.hdr-mid{flex:1;text-align:center;padding:0 8px}
+.hdr-mid h1{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--gold);letter-spacing:3px;line-height:1}
 .hdr-mid p{color:var(--muted);font-size:7.5px;margin-top:2px}
 .hdr-mid span{color:var(--gold);font-weight:700}
-.page{display:grid;grid-template-columns:1fr 1fr;column-gap:7px;align-items:start;width:100%}
-.col{display:flex;flex-direction:column;gap:5px}
-.pgb{page-break-before:always;break-before:page;padding-top:5px}
-.card{background:var(--card);border:1px solid var(--border);border-top:2px solid var(--gold);border-radius:3px;padding:5px 7px;break-inside:avoid;page-break-inside:avoid}
-.card-h{font-family:'Bebas Neue',sans-serif;font-size:.93rem;color:var(--gold);border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:2px;margin-bottom:3px;letter-spacing:.7px;display:flex;align-items:center;gap:4px}
-.card-sub{font-size:6.3px;color:var(--muted);margin-bottom:2px;font-style:italic;line-height:1.3}
-.item{display:flex;align-items:baseline;justify-content:space-between;padding:1px 0;border-bottom:1px dotted rgba(255,255,255,.06);gap:3px}
-.item:last-child{border-bottom:none}
+
+/* Cuerpo de página en 2 columnas */
+.body{display:grid;grid-template-columns:1fr 1fr;column-gap:6px;flex:1;align-items:start;overflow:hidden}
+.col{display:flex;flex-direction:column;gap:4px}
+
+/* Cards */
+.card{background:var(--card);border:1px solid var(--border);border-top:2px solid var(--gold);border-radius:3px;padding:4px 6px}
+.ch{font-family:'Bebas Neue',sans-serif;font-size:11px;color:var(--gold);border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:2px;margin-bottom:2px;letter-spacing:.6px;display:flex;align-items:center;gap:4px}
+.ch i{font-size:9px}
+.cs{font-size:6px;color:var(--muted);margin-bottom:2px;font-style:italic;line-height:1.3}
+.it{display:flex;align-items:baseline;justify-content:space-between;padding:1px 0;border-bottom:1px dotted rgba(255,255,255,.05);gap:3px}
+.it:last-child{border-bottom:none}
 .il{flex:1;min-width:0}
-.in{font-weight:600;font-size:7.8px;display:flex;align-items:center;gap:3px;flex-wrap:wrap}
-.id{font-size:6.3px;color:var(--muted);line-height:1.2}
-.ip{font-weight:700;color:var(--gold);font-size:8px;white-space:nowrap;flex-shrink:0}
-.bdg{background:var(--gold);color:#000;font-size:5.5px;font-weight:800;padding:1px 3px;border-radius:2px;white-space:nowrap}
-.footer{margin-top:6px;padding-top:4px;border-top:1px solid rgba(244,192,37,.2);text-align:center;font-size:6.5px;color:var(--muted)}
-.footer strong{color:var(--gold)}
+.in{font-weight:600;font-size:7.5px;display:flex;align-items:center;gap:2px;flex-wrap:wrap}
+.id{font-size:6px;color:var(--muted);line-height:1.2}
+.ip{font-weight:700;color:var(--gold);font-size:7.8px;white-space:nowrap;flex-shrink:0}
+.bd{background:var(--gold);color:#000;font-size:5px;font-weight:800;padding:1px 2px;border-radius:2px;white-space:nowrap}
+
+/* Footer */
+.ft{text-align:center;font-size:6px;color:var(--muted);border-top:1px solid rgba(244,192,37,.2);padding-top:3px;margin-top:4px;flex-shrink:0}
+.ft strong{color:var(--gold)}
+
 @media print{
-  html,body{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
-  .pgb{page-break-before:always!important;break-before:page!important}
-  .card{page-break-inside:avoid!important;break-inside:avoid!important}
+  @page{size:A4 portrait;margin:0}
+  body{margin:0;padding:0}
+  .pg{page-break-after:always!important;break-after:page!important}
+  .pg:last-child{page-break-after:auto!important;break-after:auto!important}
 }
 </style>
 </head>
 <body>
+
+<!-- ========== PAGINA 1 ========== -->
+<div class="pg">
 <div class="hdr">
-  <img src="images/nuevo-logo.jpg" alt="Restobar Alex">
+  <img src="images/nuevo-logo.jpg" alt="Logo">
   <div class="hdr-mid">
     <h1>Restobar Alex</h1>
-    <p>Calle Feliu y Codina 47, Cornellà de Llobregat &nbsp;&bull;&nbsp; Pedidos &amp; Reservas: <span>697 89 88 55</span></p>
+    <p>Calle Feliu y Codina 47, Cornellà de Llobregat &nbsp;&bull;&nbsp; Tel: <span>697 89 88 55</span></p>
   </div>
-  <img src="images/nuevo-logo.jpg" alt="Restobar Alex">
+  <img src="images/nuevo-logo.jpg" alt="Logo">
+</div>
+<div class="body">
+<div class="col">
+<!-- TAPAS FRIAS -->
+<div class="card">
+<div class="ch">&#x2744; TAPAS FRÍAS</div>
+<div class="it"><div class="il"><div class="in">Jamón ibérico</div></div><div class="ip">15,00€</div></div>
+<div class="it"><div class="il"><div class="in">Boquerones en vinagre <span class="bd">NUEVO</span></div><div class="id">¡Novedad de la casa!</div></div><div class="ip">7,50€</div></div>
+<div class="it"><div class="il"><div class="in">Queso semi</div></div><div class="ip">5,00€</div></div>
+<div class="it"><div class="il"><div class="in">Queso curado</div></div><div class="ip">8,50€</div></div>
+<div class="it"><div class="il"><div class="in">Ensaladilla rusa</div></div><div class="ip">4,50€</div></div>
+<div class="it"><div class="il"><div class="in">Olivas rellenas</div></div><div class="ip">2,60€</div></div>
+<div class="it"><div class="il"><div class="in">Olivas aliñadas</div></div><div class="ip">2,40€</div></div>
+<div class="it"><div class="il"><div class="in">Bolsa patatas chips</div></div><div class="ip">1,90€</div></div>
+<div class="it"><div class="il"><div class="in">Pan de coca con tomate (4ud)</div></div><div class="ip">2,50€</div></div>
+<div class="it"><div class="il"><div class="in">Cesta de pan</div></div><div class="ip">1,00€</div></div>
+</div>
+<!-- TAPAS CALIENTES parte 1 -->
+<div class="card">
+<div class="ch">&#x1F525; TAPAS CALIENTES Y RACIONES</div>
+<div class="it"><div class="il"><div class="in">Oreja a la gallega / Oreja</div></div><div class="ip">8,50€</div></div>
+<div class="it"><div class="il"><div class="in">Pimientos de padrón</div></div><div class="ip">6,00€</div></div>
+<div class="it"><div class="il"><div class="in">Tortilla de patatas</div></div><div class="ip">4,50€</div></div>
+<div class="it"><div class="il"><div class="in">Sepia plancha</div></div><div class="ip">11,50€</div></div>
+<div class="it"><div class="il"><div class="in">Morro / Morros</div></div><div class="ip">8,50€</div></div>
+<div class="it"><div class="il"><div class="in">Alitas (6ud) / Alitos</div></div><div class="ip">7,50€</div></div>
+<div class="it"><div class="il"><div class="in">Nuggets pollo</div></div><div class="ip">5,50€</div></div>
+<div class="it"><div class="il"><div class="in">Calamares andaluza</div></div><div class="ip">11,50€</div></div>
+<div class="it"><div class="il"><div class="in">Chocos</div></div><div class="ip">11,50€</div></div>
+<div class="it"><div class="il"><div class="in">Tequenos de queso (6ud)</div><div class="id">Tequenos de Queso, Avellana y Chocolate</div></div><div class="ip">8,50€</div></div>
+<div class="it"><div class="il"><div class="in">Rejos</div></div><div class="ip">11,50€</div></div>
+<div class="it"><div class="il"><div class="in">Lacón a la gallega</div></div><div class="ip">8,50€</div></div>
+<div class="it"><div class="il"><div class="in">Fingers de pollo</div></div><div class="ip">7,90€</div></div>
+<div class="it"><div class="il"><div class="in">Pescadito Frito</div></div><div class="ip">7,50€</div></div>
+</div>
+</div>
+<div class="col">
+<!-- BOCADILLOS FRIOS -->
+<div class="card">
+<div class="ch">&#x1F35E; BOCADILLOS FRÍOS</div>
+<div class="it"><div class="il"><div class="in">Fuet</div></div><div class="ip">3,60€</div></div>
+<div class="it"><div class="il"><div class="in">Chorizo</div></div><div class="ip">3,60€</div></div>
+<div class="it"><div class="il"><div class="in">Jamón ibérico</div></div><div class="ip">8,00€</div></div>
+<div class="it"><div class="il"><div class="in">Atún</div></div><div class="ip">3,60€</div></div>
+<div class="it"><div class="il"><div class="in">Jamón dulce</div></div><div class="ip">3,10€</div></div>
+<div class="it"><div class="il"><div class="in">Queso semi</div></div><div class="ip">3,60€</div></div>
+<div class="it"><div class="il"><div class="in">Queso curado</div></div><div class="ip">4,60€</div></div>
+<div class="it"><div class="il"><div class="in">Vegetal atún</div></div><div class="ip">5,50€</div></div>
+</div>
+<!-- BOCADILLOS CALIENTES -->
+<div class="card">
+<div class="ch">&#x1F32D; BOCADILLOS CALIENTES</div>
+<div class="cs">Suplementos: Queso o bacon (+1€) | Huevo (+1€) | Pimientos (+1€) | Cebolla (+1€)</div>
+<div class="it"><div class="il"><div class="in">Lomo</div></div><div class="ip">4,00€</div></div>
+<div class="it"><div class="il"><div class="in">Pollo</div></div><div class="ip">4,50€</div></div>
+<div class="it"><div class="il"><div class="in">Bacon</div></div><div class="ip">4,00€</div></div>
+<div class="it"><div class="il"><div class="in">Lacón</div></div><div class="ip">4,50€</div></div>
+<div class="it"><div class="il"><div class="in">Bikini</div></div><div class="ip">3,50€</div></div>
+<div class="it"><div class="il"><div class="in">Tortilla de patatas</div></div><div class="ip">4,00€</div></div>
+<div class="it"><div class="il"><div class="in">Tortilla francesa</div></div><div class="ip">4,00€</div></div>
+<div class="it"><div class="il"><div class="in">Pinchos</div></div><div class="ip">5,80€</div></div>
+<div class="it"><div class="il"><div class="in">Cochinillo</div></div><div class="ip">6,00€</div></div>
+<div class="it"><div class="il"><div class="in">Hamburguesa</div></div><div class="ip">5,80€</div></div>
+<div class="it"><div class="il"><div class="in">Chistorra</div></div><div class="ip">4,00€</div></div>
+<div class="it"><div class="il"><div class="in">Frankfurt casa Vallés</div></div><div class="ip">3,50€</div></div>
+<div class="it"><div class="il"><div class="in">Hamburguesa Moruna</div></div><div class="ip">4,50€</div></div>
+<div class="it"><div class="il"><div class="in">Cervela <span class="bd">NUEVO</span></div><div class="id">Exquisito embutido Cervela cocinado a la plancha.</div></div><div class="ip">3,80€</div></div>
+</div>
+<!-- ENSALADAS -->
+<div class="card">
+<div class="ch">&#x1F331; ENSALADAS</div>
+<div class="it"><div class="il"><div class="in">Queso de cabra</div><div class="id">Fresca lechuga, tomate, rulo de queso de cabra caramelizado y crujiente de jamón.</div></div><div class="ip">9,50€</div></div>
+<div class="it"><div class="il"><div class="in">Verde</div><div class="id">Lechuga, tomate cherry, olivas, maíz dulce, cebolla roja y pimientos tricolor.</div></div><div class="ip">7,50€</div></div>
+<div class="it"><div class="il"><div class="in">César</div><div class="id">Lechuga crujiente, tomate, pollo crujiente, picatostes y salsa César especial.</div></div><div class="ip">9,50€</div></div>
+<div class="it"><div class="il"><div class="in">Atún</div><div class="id">Lechuga, atún, tomate, huevo duro, cebolla roja y olivas verdes.</div></div><div class="ip">8,90€</div></div>
+</div>
+</div>
+</div>
+<div class="ft">Carta oficial de <strong>Restobar Alex</strong> &mdash; Precios con IVA incluido</div>
 </div>
 
-<div class="page">
-  <div class="col" id="p1l"></div>
-  <div class="col" id="p1r"></div>
+<!-- ========== PAGINA 2 ========== -->
+<div class="pg">
+<div class="hdr">
+  <img src="images/nuevo-logo.jpg" alt="Logo">
+  <div class="hdr-mid">
+    <h1>Restobar Alex</h1>
+    <p>Calle Feliu y Codina 47, Cornellà de Llobregat &nbsp;&bull;&nbsp; Tel: <span>697 89 88 55</span></p>
+  </div>
+  <img src="images/nuevo-logo.jpg" alt="Logo">
 </div>
-<div class="page pgb">
-  <div class="col" id="p2l"></div>
-  <div class="col" id="p2r"></div>
+<div class="body">
+<div class="col">
+<!-- TAPAS CALIENTES parte 2 -->
+<div class="card">
+<div class="ch">&#x1F525; TAPAS CALIENTES (continuación)</div>
+<div class="it"><div class="il"><div class="in">Carne en salsa</div></div><div class="ip">6,50€</div></div>
+<div class="it"><div class="il"><div class="in">Bravas</div></div><div class="ip">5,50€</div></div>
+<div class="it"><div class="il"><div class="in">Patatas fritas</div></div><div class="ip">5,00€</div></div>
+<div class="it"><div class="il"><div class="in">Pinchos morunos</div></div><div class="ip">8,50€</div></div>
+<div class="it"><div class="il"><div class="in">Cochinillo</div></div><div class="ip">8,90€</div></div>
+<div class="it"><div class="il"><div class="in">Callos</div></div><div class="ip">7,50€</div></div>
+<div class="it"><div class="il"><div class="in">Calamares romana</div></div><div class="ip">9,90€</div></div>
+<div class="it"><div class="il"><div class="in">Croquetas (4ud)</div><div class="id">Surtido: pollo, jamón, cabrales, chipiín, rabo de toro o buey</div></div><div class="ip">6,80€</div></div>
+<div class="it"><div class="il"><div class="in">Huevos rotos con Jamón</div></div><div class="ip">9,50€</div></div>
+<div class="it"><div class="il"><div class="in">Huevos rotos con chistorra</div></div><div class="ip">7,50€</div></div>
+<div class="it"><div class="il"><div class="in">Chistorra</div></div><div class="ip">7,50€</div></div>
+<div class="it"><div class="il"><div class="in">Torreznos de Soria</div></div><div class="ip">8,90€</div></div>
+<div class="it"><div class="il"><div class="in">Bomba de patatas rellena de carne (1ud)</div></div><div class="ip">3,50€</div></div>
+<div class="it"><div class="il"><div class="in">Patatas &ldquo;Restobar&rdquo; <span class="bd">NUEVO</span></div><div class="id">Patatas crujientes con queso cheddar fundido, pollo frito, cebolla crujiente y salsa BBQ.</div></div><div class="ip">10,50€</div></div>
 </div>
-<div class="page pgb">
-  <div class="col" id="p3l"></div>
-  <div class="col" id="p3r"></div>
+<!-- PLATOS COMBINADOS -->
+<div class="card">
+<div class="ch">&#x1F374; PLATOS COMBINADOS Y OFERTAS</div>
+<div class="it"><div class="il"><div class="in">Plato 1: Sepia, verdura plancha y patatas</div></div><div class="ip">15,00€</div></div>
+<div class="it"><div class="il"><div class="in">Plato 2: Entrecot (350gr), padrón y patatas</div></div><div class="ip">18,00€</div></div>
+<div class="it"><div class="il"><div class="in">Plato 3: Hamburguesa, 2 huevos, bacon y patatas</div></div><div class="ip">11,90€</div></div>
+<div class="it"><div class="il"><div class="in">Plato 4: Pollo o lomo plancha, ensalada o patatas y padrón</div></div><div class="ip">11,90€</div></div>
+<div class="it"><div class="il"><div class="in">Plato 5: Bistec, 2 huevos, bacon y patatas</div></div><div class="ip">11,90€</div></div>
+<div class="it"><div class="il"><div class="in">Plato 6: Secreto adobado, 2 huevos, bacon y patatas</div></div><div class="ip">12,90€</div></div>
+<div class="it"><div class="il"><div class="in">EL ESPECIAL AVENIDA</div><div class="id">Patatas fritas con queso cheddar fundido, bacon crujiente o pulled pork.</div></div><div class="ip">10,50€</div></div>
+<div class="it"><div class="il"><div class="in">OFERTA CHÜLETÓN</div><div class="id">Chuletón 1kg a la piedra, 2 tapas y botella de vino tinto.</div></div><div class="ip">50,00€</div></div>
+</div>
+</div>
+<div class="col">
+<!-- CARNES PREMIUM -->
+<div class="card">
+<div class="ch">&#x1F969; CARNES PREMIUM</div>
+<div class="cs">Todos los platos se sirven con patatas y/o pimientos de Padrón</div>
+<div class="it"><div class="il"><div class="in">Rabo Vacuno en Salsa</div></div><div class="ip">17,90€</div></div>
+<div class="it"><div class="il"><div class="in">Lagarto de Cerdo</div></div><div class="ip">14,90€</div></div>
+<div class="it"><div class="il"><div class="in">Pluma de Cerdo Ibérico</div></div><div class="ip">17,90€</div></div>
+<div class="it"><div class="il"><div class="in">Presa de Cerdo Ibérico</div></div><div class="ip">17,90€</div></div>
+<div class="it"><div class="il"><div class="in">Solomillo al Roquefort</div></div><div class="ip">14,90€</div></div>
+<div class="it"><div class="il"><div class="in">Lomo al Roquefort</div></div><div class="ip">13,50€</div></div>
+<div class="it"><div class="il"><div class="in">Pollo a la miel y mostaza</div></div><div class="ip">13,50€</div></div>
+</div>
+<!-- HAMBURGUESAS parte 1 -->
+<div class="card">
+<div class="ch">&#x1F354; NUESTRAS HAMBURGUESAS</div>
+<div class="cs">Todas servidas en pan de brioche</div>
+<div class="it"><div class="il"><div class="in">LA COMPLETA</div><div class="id">Hamburguesa 180gr, huevo, bacon, tomate, queso cheddar, lechuga, mayonesa y ketchup.</div></div><div class="ip">11,00€</div></div>
+<div class="it"><div class="il"><div class="in">LA SMASH</div><div class="id">Hamburguesa smash, queso cheddar, bacon y mayonesa trufada.</div></div><div class="ip">9,00€</div></div>
+<div class="it"><div class="il"><div class="in">LA PULLED</div><div class="id">Hamburguesa 180gr, queso cheddar, bacon, pulled pork bbq y mayonesa.</div></div><div class="ip">12,50€</div></div>
+<div class="it"><div class="il"><div class="in">LA MOJONA</div><div class="id">Hamburguesa 180gr, queso cheddar, bacon, pepinillos y cebolla crujiente en salsa cheddar.</div></div><div class="ip">12,50€</div></div>
+<div class="it"><div class="il"><div class="in">LA CRISPY</div><div class="id">Pechuga crujiente, queso cheddar, bacon, lechuga, tomate y salsa bbq.</div></div><div class="ip">10,00€</div></div>
+<div class="it"><div class="il"><div class="in">LA CABRONA</div><div class="id">Hamburguesa 180gr, queso cabra, tomate, cebolla caramelizada, lechuga y mermelada de fresa.</div></div><div class="ip">12,50€</div></div>
+</div>
+</div>
+</div>
+<div class="ft">Carta oficial de <strong>Restobar Alex</strong> &mdash; Precios con IVA incluido</div>
 </div>
 
-<div class="footer">
-  Carta oficial de <strong>Restobar Alex</strong> &mdash; Precios con IVA incluido &mdash; Escanea el código QR de nuestras mesas para ver imágenes y alérgenos
+<!-- ========== PAGINA 3 ========== -->
+<div class="pg">
+<div class="hdr">
+  <img src="images/nuevo-logo.jpg" alt="Logo">
+  <div class="hdr-mid">
+    <h1>Restobar Alex</h1>
+    <p>Calle Feliu y Codina 47, Cornellà de Llobregat &nbsp;&bull;&nbsp; Tel: <span>697 89 88 55</span></p>
+  </div>
+  <img src="images/nuevo-logo.jpg" alt="Logo">
+</div>
+<div class="body">
+<div class="col">
+<!-- HAMBURGUESAS parte 2 -->
+<div class="card">
+<div class="ch">&#x1F354; HAMBURGUESAS (continuación)</div>
+<div class="it"><div class="il"><div class="in">BURGUER &ldquo;RESTOBAR&rdquo; <span class="bd">TOP</span></div><div class="id">Smash burger, queso cheddar, carrillera melosa en su salsa, pepinillos y salsa Restobar secreta.</div></div><div class="ip">11,90€</div></div>
+<div class="it"><div class="il"><div class="in">BURGUER &ldquo;LA SETE&rdquo; / &ldquo;LA NUEVA&rdquo; <span class="bd">NUEVO</span></div><div class="id">Smash burger, queso cheddar, crujiente beicon y pimiento caramelizado artesanal.</div></div><div class="ip">10,50€</div></div>
+<div class="it"><div class="il"><div class="in">MOLLETE <span class="bd">¡PRÓBALO!</span></div><div class="id">Tierno mollete relleno de carrillera melosa, col encurtida y salsa especial Restobar.</div></div><div class="ip">6,50€</div></div>
+<div class="it"><div class="il"><div class="in">LA SMASH 2.0 <span class="bd">NUEVO</span></div><div class="id">Doble carne smash, queso Cédar, beicón, huevo, cebolla crujiente y mayonesa trufada.</div></div><div class="ip">11,90€</div></div>
+<div class="it"><div class="il"><div class="in">LA CRISPY 2.0 <span class="bd">NUEVO</span></div><div class="id">Pollo rebozado, queso brie, lechuga, tomate y miel y mostaza.</div></div><div class="ip">11,50€</div></div>
+<div class="it"><div class="il"><div class="in">LA MOZZA <span class="bd">NUEVO</span></div><div class="id">Hamburguesa, queso brie, lechuga, tomate y salsa miel y mostaza.</div></div><div class="ip">12,00€</div></div>
+</div>
+</div>
+<div class="col">
+</div>
+</div>
+<div class="ft">Carta oficial de <strong>Restobar Alex</strong> &mdash; Precios con IVA incluido &mdash; Escanea el QR de nuestras mesas para ver imágenes y alérgenos</div>
 </div>
 
-<script src="menu-data.js"></script>
-<script>
-(function(){
-  function fmt(p){return typeof p==='number'?p.toFixed(2).replace('.',',')+'€':(p||'Consultar')}
-
-  function buildCard(title,icon,subtitle,items){
-    if(!items||!items.length)return '';
-    var h='<div class="card"><div class="card-h"><i class="fas '+icon+'"></i>'+title.toUpperCase()+'</div>';
-    if(subtitle)h+='<div class="card-sub">'+subtitle+'</div>';
-    items.forEach(function(it){
-      var b=it.badge?'<span class="bdg">'+it.badge+'</span>':'';
-      var d=it.description||it.desc||'';
-      h+='<div class="item"><div class="il"><div class="in">'+it.name+b+'</div>';
-      if(d)h+='<div class="id">'+d+'</div>';
-      h+='</div><div class="ip">'+fmt(it.price)+'</div></div>';
-    });
-    return h+'</div>';
-  }
-
-  function card(key){
-    var c=MENU_DATA[key];
-    return c?buildCard(c.title||key,c.icon||'fa-utensils',c.subtitle||'',c.items):'';
-  }
-
-  function cardSlice(key,from,to,title,icon){
-    var c=MENU_DATA[key];
-    if(!c)return '';
-    return buildCard(title||c.title,icon||c.icon||'fa-utensils',from===0?c.subtitle||'':'',c.items.slice(from,to||c.items.length));
-  }
-
-  var tc=MENU_DATA.tapasCalientes.items;
-  var split1=17; // tapas calientes: primeros 17 en p1, resto en p2
-
-  var bg=MENU_DATA.hamburguesas;
-  var bgMid=Math.ceil(bg.items.length/2); // ~6 hamburguesas en p2r, resto en p3
-
-  // PÁGINA 1 izquierda: Tapas Frías + Tapas Calientes (1a mitad)
-  var p1l=document.getElementById('p1l');
-  p1l.insertAdjacentHTML('beforeend',card('tapasFrias'));
-  p1l.insertAdjacentHTML('beforeend',buildCard('Tapas Calientes y Raciones','fa-fire','',tc.slice(0,split1)));
-
-  // PÁGINA 1 derecha: Bocadillos + Ensaladas
-  var p1r=document.getElementById('p1r');
-  p1r.insertAdjacentHTML('beforeend',card('bocadillosFrios'));
-  p1r.insertAdjacentHTML('beforeend',card('bocadillosCalientes'));
-  p1r.insertAdjacentHTML('beforeend',card('ensaladas'));
-
-  // PÁGINA 2 izquierda: Tapas Calientes (resto) + Platos Combinados
-  var p2l=document.getElementById('p2l');
-  p2l.insertAdjacentHTML('beforeend',buildCard('Tapas Calientes (cont.)','fa-fire','',tc.slice(split1)));
-  p2l.insertAdjacentHTML('beforeend',card('platosCombinados'));
-
-  // PÁGINA 2 derecha: Carnes Premium + Hamburguesas (primera mitad)
-  var p2r=document.getElementById('p2r');
-  p2r.insertAdjacentHTML('beforeend',card('carnes'));
-  p2r.insertAdjacentHTML('beforeend',buildCard(bg.title,bg.icon,bg.subtitle,bg.items.slice(0,bgMid)));
-
-  // PÁGINA 3: Hamburguesas (segunda mitad) en 2 columnas
-  var p3l=document.getElementById('p3l');
-  var p3r=document.getElementById('p3r');
-  var rest=bg.items.slice(bgMid);
-  var mid3=Math.ceil(rest.length/2);
-  p3l.insertAdjacentHTML('beforeend',buildCard(bg.title+' (cont.)','fa-hamburger','',rest.slice(0,mid3)));
-  p3r.insertAdjacentHTML('beforeend',buildCard(bg.title+' (cont.)','fa-hamburger','',rest.slice(mid3)));
-
-}());
-</script>
 </body>
 </html>
