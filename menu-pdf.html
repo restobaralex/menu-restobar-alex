@@ -12,31 +12,26 @@
 :root{--gold:#f4c025;--bg:#0a0a0a;--card:#131313;--white:#ffffff;--muted:#aaaaaa;--border:rgba(244,192,37,0.18)}
 @page{size:A4 portrait;margin:7mm 8mm}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{width:210mm;background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;font-size:8px;line-height:1.25;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
-/* HEADER */
+html,body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;font-size:8px;line-height:1.25;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
 .hdr{display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--gold);padding-bottom:5px;margin-bottom:6px;gap:8px}
-.hdr img{width:56px;height:56px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;flex-shrink:0}
+.hdr img{width:54px;height:54px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;flex-shrink:0}
 .hdr-mid{flex:1;text-align:center}
-.hdr-mid h1{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--gold);letter-spacing:3px;line-height:1}
-.hdr-mid p{color:var(--muted);font-size:7.5px;margin-top:1px}
+.hdr-mid h1{font-family:'Bebas Neue',sans-serif;font-size:2.1rem;color:var(--gold);letter-spacing:3px;line-height:1}
+.hdr-mid p{color:var(--muted);font-size:7.5px;margin-top:2px}
 .hdr-mid span{color:var(--gold);font-weight:700}
-/* PAGES */
 .page{display:grid;grid-template-columns:1fr 1fr;column-gap:7px;align-items:start;width:100%}
 .col{display:flex;flex-direction:column;gap:5px}
 .pgb{page-break-before:always;break-before:page;padding-top:5px}
-/* CARDS */
 .card{background:var(--card);border:1px solid var(--border);border-top:2px solid var(--gold);border-radius:3px;padding:5px 7px;break-inside:avoid;page-break-inside:avoid}
-.card-h{font-family:'Bebas Neue',sans-serif;font-size:.95rem;color:var(--gold);border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:2px;margin-bottom:3px;letter-spacing:.7px;display:flex;align-items:center;gap:4px}
-.card-sub{font-size:6.5px;color:var(--muted);margin-bottom:3px;font-style:italic;line-height:1.3}
-/* ITEMS */
+.card-h{font-family:'Bebas Neue',sans-serif;font-size:.93rem;color:var(--gold);border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:2px;margin-bottom:3px;letter-spacing:.7px;display:flex;align-items:center;gap:4px}
+.card-sub{font-size:6.3px;color:var(--muted);margin-bottom:2px;font-style:italic;line-height:1.3}
 .item{display:flex;align-items:baseline;justify-content:space-between;padding:1px 0;border-bottom:1px dotted rgba(255,255,255,.06);gap:3px}
 .item:last-child{border-bottom:none}
 .il{flex:1;min-width:0}
 .in{font-weight:600;font-size:7.8px;display:flex;align-items:center;gap:3px;flex-wrap:wrap}
-.id{font-size:6.3px;color:var(--muted);margin-top:0px;line-height:1.2}
+.id{font-size:6.3px;color:var(--muted);line-height:1.2}
 .ip{font-weight:700;color:var(--gold);font-size:8px;white-space:nowrap;flex-shrink:0}
 .bdg{background:var(--gold);color:#000;font-size:5.5px;font-weight:800;padding:1px 3px;border-radius:2px;white-space:nowrap}
-/* FOOTER */
 .footer{margin-top:6px;padding-top:4px;border-top:1px solid rgba(244,192,37,.2);text-align:center;font-size:6.5px;color:var(--muted)}
 .footer strong{color:var(--gold)}
 @media print{
@@ -47,29 +42,23 @@ html,body{width:210mm;background:var(--bg);color:var(--white);font-family:'Outfi
 </style>
 </head>
 <body>
-<!-- HEADER con logo centrado -->
 <div class="hdr">
   <img src="images/nuevo-logo.jpg" alt="Restobar Alex">
   <div class="hdr-mid">
     <h1>Restobar Alex</h1>
-    <p>Calle Feliu y Codina 47, Cornellà de Llobregat &nbsp;|&nbsp; Pedidos &amp; Reservas: <span>697 89 88 55</span></p>
+    <p>Calle Feliu y Codina 47, Cornellà de Llobregat &nbsp;&bull;&nbsp; Pedidos &amp; Reservas: <span>697 89 88 55</span></p>
   </div>
   <img src="images/nuevo-logo.jpg" alt="Restobar Alex">
 </div>
 
-<!-- PÁGINA 1: Tapas + Bocadillos/Ensaladas -->
 <div class="page">
   <div class="col" id="p1l"></div>
   <div class="col" id="p1r"></div>
 </div>
-
-<!-- PÁGINA 2: Platos Combinados + Carnes + Hamburguesas parte 1 -->
 <div class="page pgb">
   <div class="col" id="p2l"></div>
   <div class="col" id="p2r"></div>
 </div>
-
-<!-- PÁGINA 3: Hamburguesas parte 2 + Novedades -->
 <div class="page pgb">
   <div class="col" id="p3l"></div>
   <div class="col" id="p3r"></div>
@@ -82,16 +71,9 @@ html,body{width:210mm;background:var(--bg);color:var(--white);font-family:'Outfi
 <script src="menu-data.js"></script>
 <script>
 (function(){
-  // Layout redistribuido para llenar bien las 3 páginas A4
-  // P1 izq: Tapas Frías + Tapas Calientes (primera mitad)
-  // P1 der: Bocadillos Fríos + Bocadillos Calientes + Ensaladas
-  // P2 izq: Tapas Calientes (segunda mitad como "Raciones") + Platos Combinados
-  // P2 der: Carnes Premium
-  // P3 izq+der: Hamburguesas (divididas)
-
   function fmt(p){return typeof p==='number'?p.toFixed(2).replace('.',',')+'€':(p||'Consultar')}
 
-  function buildCard(title, icon, subtitle, items){
+  function buildCard(title,icon,subtitle,items){
     if(!items||!items.length)return '';
     var h='<div class="card"><div class="card-h"><i class="fas '+icon+'"></i>'+title.toUpperCase()+'</div>';
     if(subtitle)h+='<div class="card-sub">'+subtitle+'</div>';
@@ -106,45 +88,50 @@ html,body{width:210mm;background:var(--bg);color:var(--white);font-family:'Outfi
   }
 
   function card(key){
-    var cat=MENU_DATA[key];
-    if(!cat||!cat.items)return '';
-    return buildCard(cat.title||key, cat.icon||'fa-utensils', cat.subtitle||'', cat.items);
+    var c=MENU_DATA[key];
+    return c?buildCard(c.title||key,c.icon||'fa-utensils',c.subtitle||'',c.items):'';
   }
 
-  function cardSlice(key,from,to,customTitle){
-    var cat=MENU_DATA[key];
-    if(!cat||!cat.items)return '';
-    var items=cat.items.slice(from,to);
-    return buildCard(customTitle||cat.title||key, cat.icon||'fa-utensils', cat.subtitle||'', items);
+  function cardSlice(key,from,to,title,icon){
+    var c=MENU_DATA[key];
+    if(!c)return '';
+    return buildCard(title||c.title,icon||c.icon||'fa-utensils',from===0?c.subtitle||'':'',c.items.slice(from,to||c.items.length));
   }
 
-  // PÁGINA 1 IZQUIERDA: Tapas Frías + Tapas Calientes items 0-16
+  var tc=MENU_DATA.tapasCalientes.items;
+  var split1=17; // tapas calientes: primeros 17 en p1, resto en p2
+
+  var bg=MENU_DATA.hamburguesas;
+  var bgMid=Math.ceil(bg.items.length/2); // ~6 hamburguesas en p2r, resto en p3
+
+  // PÁGINA 1 izquierda: Tapas Frías + Tapas Calientes (1a mitad)
   var p1l=document.getElementById('p1l');
-  p1l.insertAdjacentHTML('beforeend', card('tapasFrias'));
-  p1l.insertAdjacentHTML('beforeend', cardSlice('tapasCalientes',0,17,'Tapas Calientes y Raciones'));
+  p1l.insertAdjacentHTML('beforeend',card('tapasFrias'));
+  p1l.insertAdjacentHTML('beforeend',buildCard('Tapas Calientes y Raciones','fa-fire','',tc.slice(0,split1)));
 
-  // PÁGINA 1 DERECHA: Bocadillos Frios + Bocadillos Calientes + Ensaladas
+  // PÁGINA 1 derecha: Bocadillos + Ensaladas
   var p1r=document.getElementById('p1r');
-  p1r.insertAdjacentHTML('beforeend', card('bocadillosFrios'));
-  p1r.insertAdjacentHTML('beforeend', card('bocadillosCalientes'));
-  p1r.insertAdjacentHTML('beforeend', card('ensaladas'));
+  p1r.insertAdjacentHTML('beforeend',card('bocadillosFrios'));
+  p1r.insertAdjacentHTML('beforeend',card('bocadillosCalientes'));
+  p1r.insertAdjacentHTML('beforeend',card('ensaladas'));
 
-  // PÁGINA 2 IZQUIERDA: Tapas Calientes resto (items 17+) + Platos Combinados
+  // PÁGINA 2 izquierda: Tapas Calientes (resto) + Platos Combinados
   var p2l=document.getElementById('p2l');
-  p2l.insertAdjacentHTML('beforeend', cardSlice('tapasCalientes',17,99,'Tapas Calientes (continuación)'));
-  p2l.insertAdjacentHTML('beforeend', card('platosCombinados'));
+  p2l.insertAdjacentHTML('beforeend',buildCard('Tapas Calientes (cont.)','fa-fire','',tc.slice(split1)));
+  p2l.insertAdjacentHTML('beforeend',card('platosCombinados'));
 
-  // PÁGINA 2 DERECHA: Carnes Premium
+  // PÁGINA 2 derecha: Carnes Premium + Hamburguesas (primera mitad)
   var p2r=document.getElementById('p2r');
-  p2r.insertAdjacentHTML('beforeend', card('carnes'));
+  p2r.insertAdjacentHTML('beforeend',card('carnes'));
+  p2r.insertAdjacentHTML('beforeend',buildCard(bg.title,bg.icon,bg.subtitle,bg.items.slice(0,bgMid)));
 
-  // PÁGINA 3: Hamburguesas - divididas en 2 columnas
-  var burgers=MENU_DATA['hamburguesas'];
-  var mid=Math.ceil(burgers.items.length/2);
+  // PÁGINA 3: Hamburguesas (segunda mitad) en 2 columnas
   var p3l=document.getElementById('p3l');
   var p3r=document.getElementById('p3r');
-  p3l.insertAdjacentHTML('beforeend', buildCard(burgers.title, burgers.icon, burgers.subtitle, burgers.items.slice(0,mid)));
-  p3r.insertAdjacentHTML('beforeend', buildCard(burgers.title+' (cont.)', burgers.icon, '', burgers.items.slice(mid)));
+  var rest=bg.items.slice(bgMid);
+  var mid3=Math.ceil(rest.length/2);
+  p3l.insertAdjacentHTML('beforeend',buildCard(bg.title+' (cont.)','fa-hamburger','',rest.slice(0,mid3)));
+  p3r.insertAdjacentHTML('beforeend',buildCard(bg.title+' (cont.)','fa-hamburger','',rest.slice(mid3)));
 
 }());
 </script>
